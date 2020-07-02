@@ -31,7 +31,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Schola Holidays</a>
+        <a class="navbar-brand" href="/">Schola Holiday</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -39,7 +39,7 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="/" class="nav-link">Menu</a></li>
+                <li class="nav-item"><a href="/addclient" class="nav-link">Clients</a></li>
                 <li class="nav-item"><a href="/viewallreservations" class="nav-link">Réservations</a></li>
                 <li class="nav-item active"><a href="/viewallhebergements" class="nav-link">Hébergements</a></li>
             </ul>
@@ -54,7 +54,7 @@
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
             <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
                 <div class="text">
-                    <h1 class="mb-4 bread">Hébergement</h1>
+                    <h1 class="mb-4 bread">Hébergements</h1>
                 </div>
             </div>
         </div>
@@ -63,56 +63,49 @@
 
 <section class="ftco-section">
     <div class="container">
-            <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
-                <div class="row justify-content-center mb-5 pb-3">
-                    <div class="col-md-7 heading-section text-center ftco-animate">
-                        <h2 class="mb-4">Liste des hébergements</h2>
-                    </div>
-                </div>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr th:each="hebergement : ${hebergements}">
-                        <td th:text="${hebergement.id}"></td>
-                        <td th:if="${hebergement.type_hebergement == true}">Emplacement</td>
-                        <td th:if="${hebergement.type_hebergement == false}">Location</td>
-                        <td th:text="${hebergement.description}"></td>
-                    </tr>
-                </table>
-
-                <div class="row justify-content-center mb-5 pb-3">
-                    <form th:action="@{/addhebergement}" method="post">
-                        <div class="row justify-content-center mb-5 pb-3">
-                            <div class="form-group">
-                                <div class="col-md-7 heading-section text-center ftco-animate">
-                                    <input type="submit" name="addHebergement" value="Ajouter un hébergement" class="btn btn-primary py-3 px-5">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <form th:action="@{/updatehebergement}" method="post">
-                        <div class="row justify-content-center mb-5 pb-3">
-                            <div class="form-group">
-                                <div class="col-md-7 heading-section text-center ftco-animate">
-                                    <input type="submit" name="modifyHebergement" value="Modifier un hébergement" class="btn btn-primary py-3 px-5">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <form th:action="@{/removehebergement}" method="post">
-                        <div class="row justify-content-center mb-5 pb-3">
-                            <div class="form-group">
-                                <div class="col-md-7 heading-section text-center ftco-animate">
-                                    <input type="submit" name="removeHebergement" value="Supprimer un hébergement" class="btn btn-primary py-3 px-5">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+        <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
+            <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Liste des hébergements</h2>
                 </div>
             </div>
+            <table class=".table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr th:each="hebergement : ${hebergements}">
+                    <td th:text="${hebergement.id}"></td>
+                    <td th:if="${hebergement.type_hebergement == true}">Emplacement</td>
+                    <td th:if="${hebergement.type_hebergement == false}">Location</td>
+                    <td th:text="${hebergement.description}"></td>
+                    <td>
+                        <form th:action="@{/hebergement/}+${hebergement.id}" method="get">
+                            <input type="submit" name="editHebergement" value="Modifier" class="btn btn-primary">
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/deletehebergement/}+${hebergement.id}" method="post">
+                            <input type="submit" name="deleteHebergement" value="Supprimer" class="btn btn-primary">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="row justify-content-center mb-5 pb-3">
+                <form th:action="@{/addhebergement}" method="post">
+                    <div class="row justify-content-center mb-5 pb-3">
+                        <div class="form-group">
+                            <div class="col-md-7 heading-section text-center ftco-animate">
+                                <input type="submit" name="addHebergement" value="Ajouter un hébergement"
+                                       class="btn btn-primary py-3 px-5">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
     </div>
 </section>
@@ -123,7 +116,7 @@
         <div class="row mb-5">
             <div class="col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2">Schola Holidays</h2>
+                    <h2 class="ftco-heading-2">Schola Holiday</h2>
                     <p>Camping 5 étoiles, 11ème arrondisement de Paris</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -136,7 +129,7 @@
                 <div class="ftco-footer-widget mb-4 ml-md-5">
                     <h2 class="ftco-heading-2">Liens</h2>
                     <ul class="list-unstyled">
-                        <li class="nav-item"><a href="/" class="nav-link">Menu</a></li>
+                        <li class="nav-item"><a href="/addclient" class="nav-link">Clients</a></li>
                         <li class="nav-item"><a href="/viewallreservations" class="nav-link">Réservations</a></li>
                         <li class="nav-item active"><a href="/viewallhebergements" class="nav-link">Hébergements</a>
                         </li>
@@ -148,10 +141,12 @@
                     <h2 class="ftco-heading-2">Contact</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">Adresse</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">Numéro</span></a>
+                            <li><span class="icon icon-map-marker"></span><span class="text">8 avenue des Tulipes 75011 Paris</span>
                             </li>
-                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">Mail</span></a>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">01.37.90.12.23</span></a>
+                            </li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">sholaholiday@outlook.fr</span></a>
                             </li>
 
                         </ul>

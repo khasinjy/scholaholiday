@@ -8,24 +8,24 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" type="text/css" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/ionicons.min.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css">
 
 
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/flaticon.css">
+    <link rel="stylesheet" type="text/css" href="css/icomoon.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
@@ -39,9 +39,9 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="/addclient" class="nav-link">Clients</a></li>
+                <li class="nav-item"><a href="/addclient" class="nav-link">Clients</a></li>
                 <li class="nav-item"><a href="/viewallreservations" class="nav-link">Réservations</a></li>
-                <li class="nav-item"><a href="/viewallhebergements" class="nav-link">Hébergements</a></li>
+                <li class="nav-item active"><a href="/viewallhebergements" class="nav-link">Hébergements</a></li>
             </ul>
         </div>
     </div>
@@ -54,7 +54,7 @@
         <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
             <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
                 <div class="text">
-                    <h1 class="mb-4 bread">Clients</h1>
+                    <h1 class="mb-4 bread">Hébergements</h1>
                 </div>
             </div>
         </div>
@@ -63,75 +63,62 @@
 
 <section class="ftco-section">
     <div class="container">
+
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Création d'un client</h2>
+                <h2 class="mb-4">Modifier l'hébergement</h2>
             </div>
         </div>
         <div class="row d-flex">
             <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
-                <div class="ml-md-0">
-                    <h2 class="mb-4">Client</h2>
-                </div>
-                <form th:action="@{/addclient}" th:object="${client}" method="post">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Nom" th:field="*{nom}"
-                               id="name" name="name" maxlength="45" required>
+                <form th:action="@{/edithebergement/}+${hebergement.id}" th:object="${hebergement}" method="post">
+                    <div class="ml-md-0">
+                        <h2 class="mb-4">Hebergement</h2>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Prenom" th:field="*{prenom}" id="firstname"
-                               name="firstname" maxlength="45" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Adresse" th:field="*{adresse}" id="adresse"
-                               name="adresse" maxlength="200"
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Ville" th:field="*{ville}" id="ville"
-                               name="ville" maxlength="45" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Telephone" th:field="*{telephone}" id="tel"
-                               name="tel" maxlength="20" required>
-                    </div>
-                    <div class="row justify-content-center mb-5 pb-3">
-                        <div class="col-md-7 heading-section text-center ftco-animate">
-                            <input type="submit" value="Valider" class="btn btn-primary py-3 px-5">
+                        <label>Location
+                            <input type="radio" th:field="*{type_hebergement}" name="type_hebergement" value=false>
+                        </label>
+                        <label>Emplacement
+                            <input type="radio" th:field="*{type_hebergement}" name="type_hebergement" value=true>
+                        </label><br>
+                        <label for="description">Description:</label>
+                        <textarea id="description" th:field="*{description}" name="description" rows="4" cols="50"
+                                  placeholder="${hebergement.description}"></textarea><br>
+                        <div class="row justify-content-center mb-5 pb-3">
+                            <div class="col-md-7 heading-section text-center ftco-animate">
+                                <input type="submit" value="Valider la modification" class="btn btn-primary py-3 px-5">
+                            </div>
                         </div>
                     </div>
+
                 </form>
             </div>
 
-
         </div>
+
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Liste des clients</h2>
+                <h2 class="mb-4">Liste des hébergements</h2>
             </div>
         </div>
-        <div class="row d-flex">
-            <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
-                <table>
-                    <tr>
-                        <th>ID du client</th>
-                        <th>Nom</th>
-                        <th>Ville - Adresse</th>
-                        <th>Telephone</th>
-                    </tr>
-
-                    <tr th:each="client : ${clients}">
-                        <td th:text="${client.id}"></td>
-                        <td th:text="${client.nom}+ ' ' +${client.prenom}"></td>
-                        <td th:text="${client.ville}+ ' - ' +${client.adresse}"></td>
-                        <td th:text="${client.telephone}"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each="hebergement : ${hebergements}">
+                <td th:text="${hebergement.id}"></td>
+                <td th:if="${hebergement.type_hebergement == true}">Emplacement</td>
+                <td th:if="${hebergement.type_hebergement == false}">Location</td>
+                <td th:text="${hebergement.description}"></td>
+            </tr>
+        </table>
 
     </div>
 </section>
+
 
 <footer class="ftco-footer ftco-bg-dark ftco-section">
     <div class="container">
@@ -154,8 +141,6 @@
                         <li class="nav-item active"><a href="/addclient" class="nav-link">Clients</a></li>
                         <li class="nav-item"><a href="/viewallreservations" class="nav-link">Réservations</a></li>
                         <li class="nav-item"><a href="/viewallhebergements" class="nav-link">Hébergements</a></li>
-
-
                     </ul>
                 </div>
             </div>
@@ -164,8 +149,10 @@
                     <h2 class="ftco-heading-2">Contact</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon icon-map-marker"></span><span class="text">8 avenue des Tulipes 75011 Paris</span></li>
-                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">01.37.90.12.23</span></a>
+                            <li><span class="icon icon-map-marker"></span><span class="text">8 avenue des Tulipes 75011 Paris</span>
+                            </li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">01.37.90.12.23</span></a>
                             </li>
                             <li><a href="#"><span class="icon icon-envelope"></span><span class="text">sholaholiday@outlook.fr</span></a>
                             </li>
@@ -199,7 +186,6 @@
                 stroke="#F96D00"/>
     </svg>
 </div>
-
 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-migrate-3.0.1.min.js"></script>
