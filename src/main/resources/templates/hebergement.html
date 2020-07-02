@@ -31,86 +31,63 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Schola Holidays</a>
+        <a class="navbar-brand" href="index.html">Schola Holidays</a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="src\main\resources\templates\index.html" class="nav-link">Menu</a></li>
-	          <li class="nav-item"><a href="src\main\resources\templates\reservation.html" class="nav-link">Réservation</a></li>
-	          <li class="nav-item"><a href="src\main\resources\templates\hebergement.html" class="nav-link">Hébergement</a></li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Menu</a></li>
+            <li class="nav-item"><a href="reservation.html" class="nav-link">Réservation</a></li>
+            <li class="nav-item active"><a href="hebergement.html" class="nav-link">Hébergement</a></li>
+
+
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
 
-    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-12 ftco-animate text-center">
-          	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Bienvenue chez</h1>
-	            <h1 class="mb-3">Schola Holidays</h1>
-	            <h2>Campings</h2>
+    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+          	<div class="text">
+	            <h1 class="mb-4 bread">Hébergement</h1>
             </div>
           </div>
         </div>
-        </div>
       </div>
-
-      <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-12 ftco-animate text-center">
-          	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Camping 5 étoiles</h1>
-	            <h2>11ème arrondissement de Paris</h2>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    
-
+    </div>
+		
+		
 
 <section class="ftco-section">
       <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Création d'un client</h2>
+            <h2 class="mb-4">Ajouter un hébergement</h2>
           </div>
         </div> 
         <div class="row d-flex">
     <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
                   <div class="ml-md-0">
-                <h2 class="mb-4">Client</h2>
+                <h2 class="mb-4">Hebergement</h2>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nom">
+               <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Location</label><br>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Emplacement</label><br>
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Prenom">
+                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Adresse">
-              </div>
-               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Ville">
-              </div>
-                   <div class="form-group">
-                <input type="text" class="form-control" placeholder="Telephone">
-              </div>
+
             </form>
           </div>
-
 
 
         </div>
@@ -121,8 +98,6 @@
                </div>
       </div>
     </section>
-       
-
 
 
    

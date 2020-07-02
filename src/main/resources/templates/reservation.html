@@ -38,82 +38,81 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="src\main\resources\templates\index.html" class="nav-link">Menu</a></li>
-	          <li class="nav-item"><a href="src\main\resources\templates\reservation.html" class="nav-link">Réservation</a></li>
-	          <li class="nav-item"><a href="src\main\resources\templates\hebergement.html" class="nav-link">Hébergement</a></li>
+                        <li class="nav-item"><a href="index.html" class="nav-link">Menu</a></li>
+            <li class="nav-item active"><a href="reservation.html" class="nav-link">Réservation</a></li>
+            <li class="nav-item"><a href="hebergement.html" class="nav-link">Hébergement</a></li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
 
-    <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(images/bg_1.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-12 ftco-animate text-center">
-          	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Bienvenue chez</h1>
-	            <h1 class="mb-3">Schola Holidays</h1>
-	            <h2>Campings</h2>
+    <div class="hero-wrap" style="background-image: url('images/bg_1.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+          <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+          	<div class="text">
+	            <h1 class="mb-4 bread">Réservation</h1>
             </div>
           </div>
         </div>
-        </div>
       </div>
-
-      <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
-      	<div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-12 ftco-animate text-center">
-          	<div class="text mb-5 pb-3">
-	            <h1 class="mb-3">Camping 5 étoiles</h1>
-	            <h2>11ème arrondissement de Paris</h2>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-
-    
+    </div>
 
 
-<section class="ftco-section">
+   
+
+
+       <section class="ftco-section">
       <div class="container">
             <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
-            <h2 class="mb-4">Création d'un client</h2>
+            <h2 class="mb-4">Faire une réservation</h2>
           </div>
         </div> 
         <div class="row d-flex">
+
     <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
                   <div class="ml-md-0">
-                <h2 class="mb-4">Client</h2>
+                <h2 class="mb-4">Réservation</h2>
               </div>
+              <form action="#" class="booking-form">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nom">
+                              <div class="col-md-3 d-flex">
+                  <div class="form-group p-4 align-self-stretch d-flex align-items-end">
+                    <div class="wrap">
+                      <label for="#">Date d'arrivée</label>
+                      <input type="text" class="form-control checkin_date" placeholder="Clique là">
+                    </div>
+                  </div>
+                </div>
               </div>
+                  <div class="col-md-3 d-flex">
+                  <div class="form-group p-4 align-self-stretch d-flex align-items-end">
+                    <div class="wrap">
+                      <label for="#">Date de départ</label>
+                      <input type="text" class="form-control checkout_date" placeholder="Clique ici">
+                  </div>
+                  </div>
+                </div>
+                </form>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Prenom">
+                <input type="text" class="form-control" placeholder="Prix">
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Adresse">
-              </div>
-               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Ville">
-              </div>
-                   <div class="form-group">
-                <input type="text" class="form-control" placeholder="Telephone">
-              </div>
-            </form>
-          </div>
-
-
-
-        </div>
+                        <div class="form-group">
+                    <div class="select-wrap one-third">
+                      
+                      <select name="" id="" class="form-control">
+                        <option value="" disabled selected hidden>ID_hebergement choisi</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                  </div>
+                  </div>
+                   </div>
                    <div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
                 <input type="submit" value="Valider" class="btn btn-primary py-3 px-5">
@@ -121,10 +120,6 @@
                </div>
       </div>
     </section>
-       
-
-
-
    
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
