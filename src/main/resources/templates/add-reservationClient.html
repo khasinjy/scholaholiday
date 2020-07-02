@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <html xmlns:th="http://www.thymeleaf.org"></html>
+        <title>Schola Holiday - Le Site Web</title>
+    </head>
+
+    <body>
+
+        <header>
+            <h1>Faire une réservation</h1>
+        </header>
+
+        <section>
+            <form action="#" th:action="@{/addclient}" th:object="${client}" method="post">
+                <fieldset>
+                    <legend>Client</legend>
+                    <label for="name">Nom :</label>
+                    <input type="text" th:field="*{nom}" id="name" name="name" maxlength="45" required><br/>
+                    <label for="firstname">Prenom :</label>
+                    <input type="text" th:field="*{prenom}" id="firstname" name="firstname" maxlength="45" required><br/>
+                    <label for="name">Adresse :</label>
+                    <input type="text" th:field="*{adresse}" id="adresse" name="adresse" maxlength="200" required><br/>
+                    <label for="ville">Ville :</label>
+                    <input type="text" th:field="*{ville}" id="ville" name="ville" maxlength="45" required><br/>
+                    <label for="tel">Telephone :</label>
+                    <input type="text" th:field="*{telephone}" id="tel" name="tel" maxlength="20" required><br/>
+                </fieldset>
+                <input type="submit" name="valider" value="Valider">
+            </form> 
+        </section>
+        
+    </body>
+</html>

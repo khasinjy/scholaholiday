@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <html xmlns:th="http://www.thymeleaf.org"></html>
+        <title>Schola Holiday - Le Site Web</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Ajouter un hébergement</h1>
+        </header>
+        
+        <section>
+            <form action="#" th:action="@{/addhebergement}" th:object="${hebergement}" method="post">
+                <fieldset>
+                    <legend>Hebergement:</legend>
+                    <label>Location
+                    <input type="radio" th:field="*{type_hebergement}" name="type_hebergement" value=false>
+                    </label>
+                    <label>Emplacement
+                    <input type="radio" th:field="*{type_hebergement}" name="type_hebergement" value=true>
+                    </label><br>
+                    <label for="description">Description:</label>
+                    <textarea id="description" th:field="*{description}" name="description" rows="4" cols="50" required></textarea><br>
+                    <input type="submit" name="valider" value="Valider">
+                </fieldset>
+            </form> 
+        </section>
+        
+    </body>
+</html>

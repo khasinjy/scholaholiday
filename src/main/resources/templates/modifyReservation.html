@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <html xmlns:th="http://www.thymeleaf.org"></html>
+        <title>Schola Holiday - Le Site Web</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Modifier une réservation</h1>
+        </header>
+        
+        <section>
+            <form action="">
+                <fieldset>
+                    <label for="id_reservation">ID de la réservation à modifier</label>
+                    <select name="id_reservation">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select><br/>
+                    <legend>Client</legend>
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" maxlength="45" required><br/>
+                    <label for="firstname">Prenom :</label>
+                    <input type="text" id="firstname" name="firstname" maxlength="45" required><br/>
+                    <label for="name">Adresse :</label>
+                    <input type="text" id="adresse" name="adresse" maxlength="200" required><br/>
+                    <label for="ville">Ville :</label>
+                    <input type="text" id="ville" name="ville" maxlength="45" required><br/>
+                    <label for="tel">Telephone :</label>
+                    <input type="text" id="tel" name="tel" maxlength="20" required><br/>
+                </fieldset>
+                <fieldset>
+                    <legend>Réservation</legend>
+                    <label for="dateStart">Date d'arrivée :</label>
+                    <input type="date" id="dateStart" name="dateStart" min="2020-01-01" required><br/>
+                    <label for="dateEnd">Date de départ :</label>
+                    <input type="date" id="dateEnd" name="dateEnd" required><br/>
+                    <label for="tarif">Prix</label>
+                    <input type="number" id="tarif" name="tarif" step="0.01" required><br/>
+                    <label for="id_hebergement">ID_hebergement choisi</label>
+                    <select name="id_hebergement">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </fieldset>
+            </form> 
+        </section>
+        
+    </body>
+</html>

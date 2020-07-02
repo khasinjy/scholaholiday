@@ -1,0 +1,182 @@
+body{
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item1.nav-link{
+  color:#ecc534;
+}
+  
+#logo{
+    width: 8vw;
+}
+
+form.choix_note {
+    display: inline-block;
+}    
+input.noter,input.fav{
+    width : 15px;
+    opacity: 0.6;
+   
+}   
+
+div.navbar-nav{
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2.5vh;
+    
+    
+}
+.navbar {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  border-bottom: 2px groove lightgrey;
+}
+
+  .btn1{
+    display: inline-block;
+    width: 40px;
+    height: 35px;
+    margin: 10px;
+    border-radius: 30%;
+    color: #E2C534;
+    overflow: hidden;
+    position: center;
+    text-align: center;
+  }
+  .btn1 i{
+    line-height: 30px;
+    font-size: 26px;
+    transition: 0.2s linear;
+  }
+  .btn1:hover i{
+    transform: scale(1.2);
+    color: white;
+  }
+  input[name="search"] + button{
+	color : #E2C534;
+	border: #E2C534 1px solid;
+  }
+  input[name="search"] + button:hover
+{
+	background-color : #E2C534;
+	border: #E2C534 1px solid;
+}
+  /******Footer******/
+  footer{
+    text-align: center;
+    background-color: #474448;
+    border-top: 2px groove grey ;
+  }
+  .footer1{
+    padding-bottom: 15px;
+    color: white;
+  }
+  .footer1 a{
+    color: white;
+    text-decoration: underline;
+ } 
+  table {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+   height: 50px;
+    border-collapse:collapse;
+    width:90%;
+    margin:auto;
+    }
+    thead, tfoot {
+    
+    border:3px solid #cfb2b2;
+    }
+    tbody {
+    background-color:#FFFFFF;
+    
+    }
+    th {
+    height: 65px;
+    font-family:sans-serif;
+    border-bottom:1px solid lightgrey;
+    padding:5px;
+    background-color:rgb(209, 209, 209);
+    widows: 20%;
+    }
+    td {
+    font-family:sans-serif;
+    font-size:80%;
+    border-bottom:1px solid lightgrey;
+    padding:5px;
+    text-align:left;
+    }
+    caption {
+    font-family:sans-serif;
+    }
+body{
+  background-color: rgb(37, 37, 37);
+}
+
+header{
+  text-align: left;
+  background-color: #474448;
+  border-bottom: 2px groove grey ;
+}
+.note{
+
+  text-align: center;
+  width: 100px;
+  padding-right: 14px;
+  padding-left: px;
+}
+.titre{
+  text-align: center;
+  padding-right: 14px;
+  padding-left: 14px;
+}
+.resume{
+  text-align: center;
+  padding-right: 14px;
+  padding-left: 14px;
+}
+.genre{
+  width: 120px;
+  padding-right: 14px;
+  padding-left: 14px;
+  text-align: center;
+}
+.id_media{
+  padding-right: 25px;
+  
+}
+.moy_note{
+  text-align: center;
+  padding-right: 14px;
+  padding-left: 14px;
+
+}
+td.resume{
+  text-align: left;
+}
+
+.type{
+    text-align: center;
+    padding-right: 14px;
+    padding-left: 14px;
+}
+
+button[name='details']{
+  background-color: transparent;
+  border : none;
+  text-decoration:underline; 
+}

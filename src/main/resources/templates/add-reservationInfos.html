@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <html xmlns:th="http://www.thymeleaf.org"></html>
+    <title>Schola Holiday - Le Site Web</title>
+</head>
+<body>
+    <header>
+        <h1>Faire une réservation</h1>
+    </header>
+
+    <section>
+        <form action="#" th:action="@{/addreservation}" th:object="${reservation}" method="post">
+            <fieldset>
+                <legend>Réservation</legend>
+                <label for="dateStart">Date d'arrivée :</label>
+                <input type="date" th:field="*{date_arrivee}" id="dateStart" name="dateStart" min="2020-01-01" required><br/>
+                <label for="dateEnd">Date de départ :</label>
+                <input type="date" th:field="*{date_depart}" id="dateEnd" name="dateEnd" required><br/>
+                <label for="tarif">Prix</label>
+                <input type="number" th:field="*{tarif}" id="tarif" name="tarif" step="0.01" required><br/>
+                <label for="client">Client</label>
+                <select th:field="*{client}" name="id_client">
+                    <option th:each="client : ${clients}"
+                            th:value="${client.id}"
+                            th:utext="${client.nom}+ ' ' +${client.prenom}"/>
+                </select><br/>
+                <label for="id_hebergement">ID de l'hébergement choisi</label>
+                <select th:field="*{hebergement}" name="id_hebergement">
+                    <option th:each="hebergement : ${hebergements}"
+                            th:value="1"
+                            th:utext="${hebergement.id}"/>
+                </select>
+            </fieldset>
+            <input type="submit" name="valider" value="Valider">
+        </form>
+    </section>
+
+</body>
+</html>
