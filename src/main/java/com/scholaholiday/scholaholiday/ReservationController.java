@@ -28,7 +28,7 @@ public class ReservationController {
     @GetMapping("/viewallreservations")
     public String allReservations(Reservation reservation,Model model) {
         model.addAttribute("reservations",reservationRepository.findAll());
-        return "ListeReservation";
+        return "ListeReservations";
     }
 
     @PostMapping("/addreservation")
