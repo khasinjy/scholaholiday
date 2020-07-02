@@ -13,11 +13,12 @@ public class Reservation {
     private String date_depart;
     private double tarif;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "client_id",referencedColumnName ="id")
     private Client client;
 
-    @ManyToOne
+    @ManyToOne()
+    @JoinColumn(name = "hebergement_id",referencedColumnName ="id")
     private Hebergement hebergement;
 
     public Reservation() {

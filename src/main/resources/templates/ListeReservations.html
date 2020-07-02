@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="utf-8" />
-        <html xmlns:th="http://www.thymeleaf.org"></html>
-        <title>Schola Holiday - Le Site Web</title>
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <html xmlns:th="http://www.thymeleaf.org"></html>
+    <title>Schola Holiday - Le Site Web</title>
+</head>
 
-    <body>
-        <header>
-            <h1>Liste des réservations</h1>
-        </header>
-        
-        <section>
-        <table>
-            <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Le client</th>
-                <th>L'hébergement</th>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table>
-        <form th:action="@{/addclient}" method="post">
-            <input type="submit" name="addReservation" value="Faire une réservation">
-        </form>
-        <form th:action="@{/updatereservation}" method="post">
-            <input type="submit" name="modifyReservation" value="Modifier une réservation">
-        </form>
-        <form th:action="@{/removereservation}" method="post">
-            <input type="submit" name="removeReservation" value="Supprimer une réservation">
-        </form> 
-        </section>
-        
-    </body>
+<body>
+<header>
+    <h1>Liste des réservations</h1>
+</header>
+
+<section>
+    <table>
+        <tr>
+            <th>Le client</th>
+            <th>L'hébergement</th>
+            <th>Dates</th>
+            <th>Tarif</th>
+        </tr>
+
+        <tr th:each="reservation : ${reservations}">
+            <td th:text="${reservation.client.nom}+ ' ' +${reservation.client.prenom}"></td>
+            <td th:text="${reservation.hebergement.id}"></td>
+            <td th:text="'Du ' + ${reservation.date_arrivee}+ ' au ' +${reservation.date_depart}"></td>
+            <td th:text="${reservation.tarif}"></td>
+        </tr>
+    </table>
+    <form th:action="@{/addclient}" method="post">
+        <input type="submit" name="addReservation" value="Faire une réservation">
+    </form>
+    <form th:action="@{/updatereservation}" method="post">
+        <input type="submit" name="modifyReservation" value="Modifier une réservation">
+    </form>
+    <form th:action="@{/removereservation}" method="post">
+        <input type="submit" name="removeReservation" value="Supprimer une réservation">
+    </form>
+</section>
+
+</body>
 </html>
