@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="utf-8" />
         <html xmlns:th="http://www.thymeleaf.org"></html>
@@ -12,13 +12,13 @@
         </header>
         
         <section>
-            <form action="">
+            <form th:action="@{/removereservation}" method="post">
                 <fieldset>
                     <label for="id_reservation">ID_reservation</label>
-                    <select name="id_reservation">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                    <select th:field="*{reservations}" name="id_reservation">
+                        <option th:each="reservation : ${reservations}"
+                                th:value="${reservation.id}"
+                                th:utext="${reservation.id}"/>
                     </select>
                     <input type="submit" name="valider" value="Valider">
                 </fieldset>

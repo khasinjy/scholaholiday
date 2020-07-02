@@ -14,7 +14,8 @@ public class HebergementController {
     private HebergementRepository hebergementRepository;
 
     @GetMapping("/addhebergement")
-    public String addHebergement(Hebergement hebergement) {
+    public String addHebergement(Hebergement hebergement, Model model) {
+        model.addAttribute("hebergements",hebergementRepository.findAll());
         return "add-hebergement";
     }
 

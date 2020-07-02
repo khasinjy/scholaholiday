@@ -14,7 +14,7 @@ public class Hebergement {
     private String description;
     private boolean type_hebergement;
 
-    @OneToMany(mappedBy = "hebergement")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "hebergement")
     private List<Reservation> reservations =  new ArrayList<Reservation>();
 
     public Hebergement() {

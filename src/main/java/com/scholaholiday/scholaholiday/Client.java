@@ -17,7 +17,7 @@ public class Client {
     private String adresse;
     private String telephone;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY ,mappedBy = "client")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "client")
     private List<Reservation> reservations =  new ArrayList<Reservation>();
 
     public Client() {
