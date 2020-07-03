@@ -1,54 +1,206 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <html xmlns:th="http://www.thymeleaf.org"></html>
-        <title>Schola Holiday - Le Site Web</title>
-    </head>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Schola Holiday - Camping 5 étoiles</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <body>
-        <header>
-            <h1>Modifier une réservation</h1>
-        </header>
-        
-        <section>
-            <form action="">
-                <fieldset>
-                    <label for="id_reservation">ID de la réservation à modifier</label>
-                    <select name="id_reservation">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select><br/>
-                    <legend>Client</legend>
-                    <label for="name">Nom :</label>
-                    <input type="text" id="name" name="name" maxlength="45" required><br/>
-                    <label for="firstname">Prenom :</label>
-                    <input type="text" id="firstname" name="firstname" maxlength="45" required><br/>
-                    <label for="name">Adresse :</label>
-                    <input type="text" id="adresse" name="adresse" maxlength="200" required><br/>
-                    <label for="ville">Ville :</label>
-                    <input type="text" id="ville" name="ville" maxlength="45" required><br/>
-                    <label for="tel">Telephone :</label>
-                    <input type="text" id="tel" name="tel" maxlength="20" required><br/>
-                </fieldset>
-                <fieldset>
-                    <legend>Réservation</legend>
-                    <label for="dateStart">Date d'arrivée :</label>
-                    <input type="date" id="dateStart" name="dateStart" min="2020-01-01" required><br/>
-                    <label for="dateEnd">Date de départ :</label>
-                    <input type="date" id="dateEnd" name="dateEnd" required><br/>
-                    <label for="tarif">Prix</label>
-                    <input type="number" id="tarif" name="tarif" step="0.01" required><br/>
-                    <label for="id_hebergement">ID_hebergement choisi</label>
-                    <select name="id_hebergement">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                    </select>
-                </fieldset>
-            </form> 
-        </section>
-        
-    </body>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="/css/aos.css">
+
+    <link rel="stylesheet" href="/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="/css/flaticon.css">
+    <link rel="stylesheet" href="/css/icomoon.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">Schola Holiday</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="/addclient" class="nav-link">Clients</a></li>
+                <li class="nav-item active"><a href="/viewallreservations" class="nav-link">Réservations</a></li>
+                <li class="nav-item"><a href="/viewallhebergements" class="nav-link">Hébergements</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<div class="hero-wrap" style="background-image: url('/images/bg_1.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text d-flex align-itemd-end justify-content-center">
+            <div class="col-md-9 ftco-animate text-center d-flex align-items-end justify-content-center">
+                <div class="text">
+                    <h1 class="mb-4 bread">Réservation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Modifier la réservation</h2>
+            </div>
+        </div>
+        <div class="row d-flex">
+            <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
+                <form th:action="@{/editreservation/}+${reservation.id}" th:object="${reservation}" method="post">
+                    <div class="form-group">
+                        <div class="col-md-3 d-flex">
+                            <div class="form-group p-4 align-self-stretch d-flex align-items-end">
+                                <div class="wrap">
+                                    <label for="dateStart">Date d'arrivée</label>
+                                    <input type="text" th:field="*{date_arrivee}" id="dateStart" name="dateStart"
+                                           class="form-control checkin_date" placeholder="Clique là" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex">
+                        <div class="form-group p-4 align-self-stretch d-flex align-items-end">
+                            <div class="wrap">
+                                <label for="dateEnd">Date de départ</label>
+                                <input type="text" class="form-control checkout_date" th:field="*{date_depart}"
+                                       id="dateEnd" name="dateEnd" required placeholder="Clique ici">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tarif">Prix</label>
+                        <input type="number" class="form-control" placeholder="Prix" th:field="*{tarif}" id="tarif"
+                               name="tarif" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="select-wrap one-third">
+                            <select th:field="*{client.id}" name="id_client" class="form-control" required>
+                                <option value="0" disabled selected hidden>Le client</option>
+                                <option th:each="client : ${clients}"
+                                        th:value="${client.id}"
+                                        th:utext="${client.nom}+ ' ' +${client.prenom}"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="select-wrap one-third">
+                            <select th:field="*{hebergement.id}" name="id_hebergement" class="form-control" required>
+                                <option value="0" disabled selected hidden>ID de l'hébergement</option>
+                                <option th:each="hebergement : ${hebergements}"
+                                        th:value="${hebergement.id}"
+                                        th:utext="${hebergement.id}"/>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mb-5 pb-3">
+                            <input type="submit" value="Valider" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Schola Holiday</h2>
+                    <p>Camping 5 étoiles, 11ème arrondisement de Paris</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Liens</h2>
+                    <ul class="list-unstyled">
+                        <li class="nav-item"><a href="/addclient" class="nav-link">Clients</a></li>
+                        <li class="nav-item active"><a href="/viewallreservations" class="nav-link">Réservations</a></li>
+                        <li class="nav-item"><a href="/viewallhebergements" class="nav-link">Hébergements</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Contact</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">8 avenue des Tulipes 75011 Paris</span>
+                            </li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">01.37.90.12.23</span></a>
+                            </li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">sholaholiday@outlook.fr</span></a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+
+                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                    All rights reserved | This template is made with <i class="icon-heart color-danger"
+                                                                        aria-hidden="true"></i> by <a
+                            href="https://colorlib.com" target="_blank">Colorlib</a>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.easing.1.3.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/owl.carousel.min.js"></script>
+<script src="/js/jquery.magnific-popup.min.js"></script>
+<script src="/js/aos.js"></script>
+<script src="/js/jquery.animateNumber.min.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/jquery.timepicker.min.js"></script>
+<script src="/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="/js/google-map.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
 </html>
