@@ -81,9 +81,7 @@
                     <td th:if="${hebergement.type_hebergement == false}">Location</td>
                     <td th:text="${hebergement.description}"></td>
                     <td>
-                        <form th:action="@{/hebergement/}+${hebergement.id}" method="get">
-                            <input type="submit" name="editHebergement" value="Modifier" class="btn btn-primary">
-                        </form>
+                        <a th:href="@{/hebergement/}+${hebergement.id}" class="btn btn-primary">Modifier</a>
                     </td>
                     <td>
                         <form th:action="@{/deletehebergement/}+${hebergement.id}" method="post">
