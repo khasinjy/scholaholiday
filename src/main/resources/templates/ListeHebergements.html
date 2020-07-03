@@ -92,16 +92,7 @@
             </table>
 
             <div class="row justify-content-center mb-5 pb-3">
-                <form th:action="@{/addhebergement}" method="post">
-                    <div class="row justify-content-center mb-5 pb-3">
-                        <div class="form-group">
-                            <div class="col-md-7 heading-section text-center ftco-animate">
-                                <input type="submit" name="addHebergement" value="Ajouter un hébergement"
-                                       class="btn btn-primary py-3 px-5">
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                <a th:href="@{/addhebergement}" class="btn btn-primary">Ajouter un hébergement</a>
             </div>
         </div>
 
