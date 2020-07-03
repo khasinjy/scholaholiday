@@ -21,7 +21,7 @@ public class HebergementController {
     }
 
     @GetMapping("/viewallhebergements")
-    public String allReservations(Reservation reservation, Model model) {
+    public String allHebergements(Hebergement hebergement, Model model) {
         model.addAttribute("hebergements",hebergementRepository.findAll());
         return "ListeHebergements";
     }
