@@ -8878,4 +8878,22 @@ textarea.form-control {
     color: #000000;
     font-style: italic; }
 
+#export .dt-buttons button {
+    background: #8d703b;
+    color: #ffffff;
+    border-radius: 5px;
+    border: none;
+}
+#export .dt-buttons button:hover {
+    background: #ffffff;
+    color: #8d703b;
+    border: #8d703b solid 1px;
+}
+a.paginate_button{
+	{
+    border: #979797 solid 1px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    background: none;
+}
 

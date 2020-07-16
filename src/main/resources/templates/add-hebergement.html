@@ -69,7 +69,7 @@
                 <h2 class="mb-4">Ajouter un hébergement</h2>
             </div>
         </div>
-        <div class="row d-flex">
+        <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
                 <form action="#" th:action="@{/addhebergement}" th:object="${hebergement}" method="post">
                     <div class="ml-md-0">
@@ -95,25 +95,30 @@
             </div>
 
         </div>
-
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
                 <h2 class="mb-4">Liste des hébergements</h2>
             </div>
         </div>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>Description</th>
-            </tr>
-            <tr th:each="hebergement : ${hebergements}">
-                <td th:text="${hebergement.id}"></td>
-                <td th:if="${hebergement.type_hebergement == true}">Emplacement</td>
-                <td th:if="${hebergement.type_hebergement == false}">Location</td>
-                <td th:text="${hebergement.description}"></td>
-            </tr>
-        </table>
+        <div class="row justify-content-center mb-5 pb-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="hebergement : ${hebergements}">
+                        <td th:text="${hebergement.id}"></td>
+                        <td th:if="${hebergement.type_hebergement == true}">Emplacement</td>
+                        <td th:if="${hebergement.type_hebergement == false}">Location</td>
+                        <td th:text="${hebergement.description}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 </section>
@@ -191,6 +196,5 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="/js/google-map.js"></script>
 <script src="/js/main.js"></script>
-
 </body>
 </html>

@@ -50,7 +50,7 @@ public class ReservationController {
     public String editReservation(Reservation reservation, @PathVariable int id) {
         reservation.setId(id);
         reservationRepository.save(reservation);
-        return "redirect:/reservation/"+id;
+        return "redirect:/viewallreservations";
     }
 
     @PostMapping("/deletereservation/{id}")

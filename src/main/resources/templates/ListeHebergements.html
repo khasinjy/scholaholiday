@@ -22,10 +22,13 @@
     <link rel="stylesheet" href="/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="/css/jquery.timepicker.css">
 
-
     <link rel="stylesheet" href="/css/flaticon.css">
     <link rel="stylesheet" href="/css/icomoon.css">
     <link rel="stylesheet" href="/css/style.css">
+
+    <!--Pour l'export des données voir datatable.net-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.css"/>
 </head>
 <body>
 
@@ -63,39 +66,43 @@
 
 <section class="ftco-section">
     <div class="container">
-        <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
-            <div class="row justify-content-center mb-5 pb-3">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">Liste des hébergements</h2>
-                </div>
-            </div>
-            <table class=".table-striped">
-                <tr>
-                    <th>ID</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                </tr>
-                <tr th:each="hebergement : ${hebergements}">
-                    <td th:text="${hebergement.id}"></td>
-                    <td th:if="${hebergement.type_hebergement == true}">Emplacement</td>
-                    <td th:if="${hebergement.type_hebergement == false}">Location</td>
-                    <td th:text="${hebergement.description}"></td>
-                    <td>
-                        <a th:href="@{/hebergement/}+${hebergement.id}" class="btn btn-primary">Modifier</a>
-                    </td>
-                    <td>
-                        <form th:action="@{/deletehebergement/}+${hebergement.id}" method="post">
-                            <input type="submit" name="deleteHebergement" value="Supprimer" class="btn btn-primary">
-                        </form>
-                    </td>
-                </tr>
-            </table>
-
-            <div class="row justify-content-center mb-5 pb-3">
-                <a th:href="@{/addhebergement}" class="btn btn-primary">Ajouter un hébergement</a>
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Liste des hébergements</h2>
             </div>
         </div>
-
+        <div class="row justify-content-center mb-5 pb-3">
+            <table class="table table-hover Datatable" id="Hebergements">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th class="nosort"></th>
+                        <th class="nosort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="hebergement : ${hebergements}">
+                        <td th:text="${hebergement.id}"></td>
+                        <td th:if="${hebergement.type_hebergement == true}">Emplacement</td>
+                        <td th:if="${hebergement.type_hebergement == false}">Location</td>
+                        <td th:text="${hebergement.description}"></td>
+                        <td>
+                            <a th:href="@{/hebergement/}+${hebergement.id}" class="btn btn-primary">Modifier</a>
+                        </td>
+                        <td>
+                            <form th:action="@{/deletehebergement/}+${hebergement.id}" method="post">
+                                <input type="submit" name="deleteHebergement" value="Supprimer" class="btn btn-primary">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row justify-content-center mb-5 pb-3">
+            <a th:href="@{/addhebergement}" class="btn btn-primary">Ajouter un hébergement</a>
+        </div>
     </div>
 </section>
 
@@ -175,6 +182,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="/js/google-map.js"></script>
 <script src="/js/main.js"></script>
+<!--Pour l'export des données voir datatable.net-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
 
 </body>
 </html>

@@ -42,7 +42,7 @@ public class HebergementController {
     public String editHebergement(Hebergement hebergement, @PathVariable int id) {
         hebergement.setId(id);
         hebergementRepository.save(hebergement);
-        return "redirect:/hebergement/"+id;
+        return "redirect:/viewallhebergements";
     }
 
     @PostMapping("/deletehebergement/{id}")

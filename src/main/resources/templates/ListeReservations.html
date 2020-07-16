@@ -26,6 +26,10 @@
     <link rel="stylesheet" href="/css/flaticon.css">
     <link rel="stylesheet" href="/css/icomoon.css">
     <link rel="stylesheet" href="/css/style.css">
+
+    <!--Pour l'export des données voir datatable.net-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.css"/>
 </head>
 <body>
 
@@ -69,30 +73,34 @@
             </div>
         </div>
         <div class="row justify-content-center mb-5 pb-3">
-            <table>
-                <tr>
-                    <th>Le client</th>
-                    <th>L'hébergement</th>
-                    <th>Dates</th>
-                    <th>Tarif</th>
-                </tr>
-
-                <tr th:each="reservation : ${reservations}">
-                    <td th:text="${reservation.client.nom}+ ' ' +${reservation.client.prenom}"></td>
-                    <td th:text="${reservation.hebergement.id}"></td>
-                    <td th:text="'Du ' + ${reservation.date_arrivee}+ ' au ' +${reservation.date_depart}"></td>
-                    <td th:text="${reservation.tarif}"></td>
-                    <td>
-                        <a th:href="@{/reservation/}+${reservation.id}" class="btn btn-primary">Modifier</a>
-                    </td>
-                    <td>
-                        <form th:action="@{/deletereservation/}+${reservation.id}" method="post">
-                            <input type="submit" name="deleteReservation" value="Supprimer" class="btn btn-primary">
-                        </form>
-                    </td>
-                </tr>
+            <table class="table table-hover Datatable" id="Reservations">
+                <thead>
+                    <tr>
+                        <th>Le client</th>
+                        <th>L'hébergement</th>
+                        <th>Dates</th>
+                        <th>Tarif</th>
+                        <th class="nosort"></th>
+                        <th class="nosort"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="reservation : ${reservations}">
+                        <td th:text="${reservation.client.nom}+ ' ' +${reservation.client.prenom}"></td>
+                        <td th:text="${reservation.hebergement.id}"></td>
+                        <td th:text="'Du ' + ${reservation.date_arrivee}+ ' au ' +${reservation.date_depart}"></td>
+                        <td th:text="${reservation.tarif}"></td>
+                        <td>
+                            <a th:href="@{/reservation/}+${reservation.id}" class="btn btn-primary">Modifier</a>
+                        </td>
+                        <td>
+                            <form th:action="@{/deletereservation/}+${reservation.id}" method="post">
+                                <input type="submit" name="deleteReservation" value="Supprimer" class="btn btn-primary" />
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-
         </div>
         <div class="row justify-content-center mb-5 pb-3">
             <a th:href="@{/addreservation}" class="btn btn-primary">Faire une réservation</a>
@@ -179,6 +187,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="/js/google-map.js"></script>
 <script src="/js/main.js"></script>
+<!--Pour l'export des données voir datatable.net-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/b-1.6.2/b-html5-1.6.2/datatables.min.js"></script>
 
 </body>
 </html>

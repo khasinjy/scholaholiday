@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <div class="row d-flex">
+        <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
                 <div class="ml-md-0">
                     <h2 class="mb-4">Réservation</h2>
@@ -91,7 +91,7 @@
                             <div class="wrap">
                                 <label for="dateEnd">Date de départ</label>
                                 <input type="text" class="form-control checkout_date" th:field="*{date_depart}"
-                                       id="dateEnd" name="dateEnd" required placeholder="Clique ici">
+                                       id="dateEnd" name="dateEnd" placeholder="Clique ici" required>
                             </div>
                         </div>
                     </div>
@@ -134,22 +134,25 @@
                 <h2 class="mb-4">Liste des réservations</h2>
             </div>
         </div>
-        <div class="row d-flex">
+        <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
-                <table>
-                    <tr>
-                        <th>Le client</th>
-                        <th>L'hébergement</th>
-                        <th>Dates</th>
-                        <th>Tarif</th>
-                    </tr>
-
-                    <tr th:each="reservation : ${reservations}">
-                        <td th:text="${reservation.client.nom}+ ' ' +${reservation.client.prenom}"></td>
-                        <td th:text="${reservation.hebergement.id}"></td>
-                        <td th:text="'Du ' + ${reservation.date_arrivee}+ ' au ' +${reservation.date_depart}"></td>
-                        <td th:text="${reservation.tarif}"></td>
-                    </tr>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Le client</th>
+                            <th>L'hébergement</th>
+                            <th>Dates</th>
+                            <th>Tarif</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="reservation : ${reservations}">
+                            <td th:text="${reservation.client.nom}+ ' ' +${reservation.client.prenom}"></td>
+                            <td th:text="${reservation.hebergement.id}"></td>
+                            <td th:text="'Du ' + ${reservation.date_arrivee}+ ' au ' +${reservation.date_depart}"></td>
+                            <td th:text="${reservation.tarif}"></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

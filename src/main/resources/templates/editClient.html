@@ -71,7 +71,7 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-3">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Création d'un client</h2>
+                <h2 class="mb-4">Modification du client</h2>
             </div>
         </div>
         <div class="row justify-content-center mb-5 pb-3">
@@ -79,7 +79,7 @@
                 <div class="ml-md-0">
                     <h2 class="mb-4">Client</h2>
                 </div>
-                <form th:action="@{/addclient}" th:object="${client}" method="post">
+                <form th:action="@{/editclient/}+${client.id}" th:object="${client}" method="post">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Nom" th:field="*{nom}"
                                id="name" name="name" maxlength="45" required>
@@ -108,47 +108,7 @@
                     </div>
                 </form>
             </div>
-
-
         </div>
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-7 heading-section text-center ftco-animate">
-                <h2 class="mb-4">Liste des clients</h2>
-            </div>
-        </div>
-        <div class="row justify-content-center mb-5 pb-3">
-            <div class="col-md-9 py-5 wrap-about pb-md-5 ftco-animate">
-                <table class="table table-hover Datatable" id="Clients">
-                    <thead>
-                        <tr>
-                            <th>ID du client</th>
-                            <th>Nom</th>
-                            <th>Ville - Adresse</th>
-                            <th>Telephone</th>
-                            <th class="nosort"></th>
-                            <th class="nosort"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="client : ${clients}">
-                            <td th:text="${client.id}"></td>
-                            <td th:text="${client.nom}+ ' ' +${client.prenom}"></td>
-                            <td th:text="${client.ville}+ ' - ' +${client.adresse}"></td>
-                            <td th:text="${client.telephone}"></td>
-                            <td>
-                                <a th:href="@{/client/}+${client.id}" class="btn btn-primary">Modifier</a>
-                            </td>
-                            <td>
-                                <form th:action="@{/deleteclient/}+${client.id}" method="post">
-                                    <input type="submit" name="deleteClient" value="Supprimer" class="btn btn-primary">
-                                </form>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
     </div>
 </section>
 

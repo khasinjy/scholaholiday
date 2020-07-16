@@ -345,8 +345,37 @@
 	  'autoclose': true
 	});
 
-
-
+    $(document).ready(function() {
+            $('.Datatable').DataTable( {
+                dom: '<"#export"Bf>rtip',
+                buttons:
+                    [{
+                        extend: 'csvHtml5',
+                        text: 'Export en CSV',
+                        fieldSeparator: ';;',
+                        filename:'ScholaHoliday_Data_'+ document.getElementsByClassName("Datatable")[0].id,
+                        footer: 'true',
+                        exportOptions: {
+                            columns: $('th:not(.nosort)'),
+                            columns: ':visible',
+                        }
+                    },
+                    {
+                        extend: 'copyHtml5',
+                        text: 'Copier',
+                        footer: 'true',
+                        exportOptions: {
+                            columns: $('th:not(.nosort)'),
+                            columns: ':visible',
+                        }
+                    }],
+                "columnDefs":
+                [{
+                   "targets": 'nosort',
+                   "orderable": false
+                }]
+            });
+        } );
 
 })(jQuery);
 
