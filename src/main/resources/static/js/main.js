@@ -357,7 +357,6 @@
                         footer: 'true',
                         exportOptions: {
                             columns: $('th:not(.nosort)'),
-                            columns: ':visible',
                         }
                     },
                     {
@@ -366,7 +365,6 @@
                         footer: 'true',
                         exportOptions: {
                             columns: $('th:not(.nosort)'),
-                            columns: ':visible',
                         }
                     }],
                 "columnDefs":

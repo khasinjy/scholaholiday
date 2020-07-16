@@ -28,12 +28,12 @@ public class ClientController {
 
     @GetMapping("/client/{id}")
     public String getClientById(@PathVariable int id, Model model) {
-        model.addAttribute("reservation", clientRepository.findById(id).get());
+        model.addAttribute("client", clientRepository.findById(id).get());
         return "editClient";
     }
 
     @PostMapping("/editclient/{id}")
-    public String editReservation(Client client, @PathVariable int id) {
+    public String editClientReservation(Client client, @PathVariable int id) {
         client.setId(id);
         clientRepository.save(client);
         return "redirect:/addclient";
